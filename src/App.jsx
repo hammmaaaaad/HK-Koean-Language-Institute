@@ -13,7 +13,7 @@ import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
 import Students from "./pages/Students";
 import StudentProfile from "./pages/StudentProfile";
-import PromoPopup from "./components/PromoPopup";
+// import PromoPopup from "./components/PromoPopup";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -65,7 +65,7 @@ function App() {
           {!isAdminPage && <FloatingButtons />}
 
           {/* Promo Popup — sirf public pages par dikhega, admin par nahi */}
-          {!isAdminPage && <PromoPopup />}
+          {/* {!isAdminPage && <PromoPopup />} */}
         </div>
       )}
     </>
