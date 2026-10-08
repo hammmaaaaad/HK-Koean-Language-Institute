@@ -38,10 +38,10 @@ function Admission() {
   const [showInstallments, setShowInstallments] = useState(false);
 
   const courseFees = {
-    "EPS TOPIK": 25000,
-    "TOPIK 1": 15000,
-    "Basic Korean Language": 25000,
-    "Fast-Track Korean (40 Days)": 20000,
+    "EPS-TOPIK Preparation": 25000,
+    "Basic Korean": 25000,
+    "Fast-Track Korean": 25000,
+    "TOPIK Test Preparation": 20000,
     "Free Short Course": 1000,
   };
 
@@ -626,38 +626,31 @@ function Admission() {
                 value={formData.course}
                 required
                 onChange={handleChange}
-                className="w-full rounded-xl border border-gray-300 dark:border-white/10 shadow-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 p-3.5 bg-gray-50 dark:bg-black/20 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-all"
+                className="w-full rounded-xl border border-gray-300 dark:border-white/10 shadow-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 p-3.5 bg-gray-50 dark:bg-black/20 text-gray-900 dark:text-gray-100 outline-none transition-all"
               >
                 <option value="" className="dark:bg-[#111c34]">
                   Select a Course...
                 </option>
-                <option value="EPS TOPIK" className="dark:bg-[#111c34]">
-                  EPS TOPIK
-                </option>
-                <option value="TOPIK 1" className="dark:bg-[#111c34]">
-                  TOPIK 1
-                </option>
                 <option
-                  value="Basic Korean Language"
+                  value="EPS-TOPIK Preparation"
                   className="dark:bg-[#111c34]"
                 >
-                  Basic Korean Language
+                  EPS-TOPIK Preparation
+                </option>
+                <option value="Basic Korean" className="dark:bg-[#111c34]">
+                  Basic Korean
+                </option>
+                <option value="Fast-Track Korean" className="dark:bg-[#111c34]">
+                  Fast-Track Korean
                 </option>
                 <option
-                  value="Fast-Track Korean (40 Days)"
+                  value="TOPIK Test Preparation"
                   className="dark:bg-[#111c34]"
                 >
-                  Fast-Track Korean (40 Days)
+                  TOPIK Test Preparation
                 </option>
                 <option value="Free Short Course" className="dark:bg-[#111c34]">
                   Free Short Course
-                </option>
-                <option
-                  value="TOPIK 2"
-                  disabled
-                  className="text-gray-400 bg-gray-100 dark:bg-white/5 italic"
-                >
-                  TOPIK 2 (Currently Unavailable)
                 </option>
               </select>
             </div>

@@ -5,47 +5,59 @@ import { Link } from "react-router-dom";
 const Courses = () => {
   const courses = [
     {
-      title: "Beginner Korean",
-      desc: "Start your journey with Hangul and basic grammar.",
+      title: "EPS-TOPIK Preparation",
+      desc: "Comprehensive preparation for the EPS-TOPIK exam to secure your work visa.",
+      duration: "3 Months",
+      level: "Beginner to Advanced",
+      fee: "PKR 25,000",
+      features: [
+        "Exam Focused Training",
+        "Listening Reading Practice",
+        "Mock Test Practice",
+      ],
+    },
+    {
+      title: "Basic Korean Language",
+      desc: "Start your journey with Hangul, basic grammar, and sentence structures.",
       duration: "3 Months",
       level: "A1-A2",
-      benefits: [
-        "Basic Conversations",
-        "Read & Write Hangul",
-        "Everyday Vocabulary",
+      fee: "PKR 25,000",
+      features: [
+        "Learn Hangul Basics",
+        "Build Korean Grammar",
+        "Practice Daily Conversation",
       ],
     },
     {
-      title: "Intermediate Korean",
-      desc: "Enhance fluency and understand complex sentences.",
-      duration: "4 Months",
-      level: "B1-B2",
-      benefits: [
-        "Fluent Conversations",
-        "Grammar Mastery",
-        "Idiomatic Expressions",
+      title: "Fast-Track Korean",
+      desc: "Quick and effective Korean language learning for students in a hurry.",
+      duration: "40 Days",
+      level: "A1-A2",
+      fee: "PKR 25,000",
+      features: [
+        "Rapid Korean Learning",
+        "Essential Grammar Skills",
+        "Practical Speaking Practice",
       ],
     },
     {
-      title: "Advanced Korean",
-      desc: "Master the language for professional and academic use.",
-      duration: "6 Months",
-      level: "C1-C2",
-      benefits: ["Professional Writing", "Native Fluency", "Cultural Nuances"],
-    },
-    {
-      title: "TOPIK Preparation",
-      desc: "Crack the Test of Proficiency in Korean with high scores.",
+      title: "TOPIK Test Preparation",
+      desc: "Specialized training for the official TOPIK test to achieve higher levels.",
       duration: "2 Months",
-      level: "All Levels",
-      benefits: ["Exam Strategies", "Mock Tests", "High Score Guarantee"],
+      level: "TOPIK 1 & 2",
+      fee: "PKR 20,000",
+      features: [
+        "TOPIK Exam Strategies",
+        "Reading Listening Practice",
+        "Regular Mock Tests",
+      ],
     },
     {
       title: "Spoken Korean",
       desc: "Focus purely on speaking and listening skills.",
       duration: "1.5 Months",
       level: "A2+",
-      benefits: [
+      features: [
         "Pronunciation Correction",
         "Real-life Scenarios",
         "Accent Training",
@@ -56,21 +68,10 @@ const Courses = () => {
       desc: "Learn Korean from the comfort of your home.",
       duration: "Flexible",
       level: "All Levels",
-      benefits: [
+      features: [
         "Live Interactive Sessions",
         "Recorded Lectures",
         "Global Access",
-      ],
-    },
-    {
-      title: "Weekend Batches",
-      desc: "Perfect for working professionals and students.",
-      duration: "8 Weekends",
-      level: "All Levels",
-      benefits: [
-        "Saturday & Sunday",
-        "Intensive Practice",
-        "Flexible Schedule",
       ],
     },
   ];
@@ -107,9 +108,20 @@ const Courses = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-kred/10 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
-              <h3 className="text-2xl font-bold text-navy dark:text-white mb-3 relative z-10">
+
+              <h3 className="text-2xl font-bold text-navy dark:text-white mb-2 relative z-10">
                 {course.title}
               </h3>
+
+              {/* Fee Badge (Agar fee mojood hai) */}
+              {course.fee && (
+                <div className="mb-4 relative z-10">
+                  <span className="inline-block bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400 px-3 py-1 rounded-full text-xs font-bold">
+                    Fee: {course.fee}
+                  </span>
+                </div>
+              )}
+
               <p className="text-gray-600 dark:text-gray-300 mb-6 relative z-10">
                 {course.desc}
               </p>
@@ -123,13 +135,15 @@ const Courses = () => {
                 </span>
               </div>
 
-              <ul className="space-y-2 mb-8 relative z-10">
-                {course.benefits.map((b, idx) => (
+              {/* Benefits/Features list */}
+              <ul className="space-y-2 mb-8 relative z-10 flex-grow">
+                {course.features.map((feature, idx) => (
                   <li
                     key={idx}
                     className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-200"
                   >
-                    <FaCheckCircle className="text-green-500" /> {b}
+                    <FaCheckCircle className="text-green-500 min-w-4" />{" "}
+                    {feature}
                   </li>
                 ))}
               </ul>
@@ -138,8 +152,7 @@ const Courses = () => {
                 to="/apply"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="btn-primary text-center mt-2"
+                className="btn-primary text-center mt-auto relative z-10"
               >
                 Apply Now
               </Link>
