@@ -30,7 +30,7 @@ const Courses = () => {
       title: "Fast-Track Korean",
       desc: "Quick and effective Korean language learning for students in a hurry.",
       duration: "40 Days",
-      fee: "PKR 25,000",
+      fee: "PKR 20,000",
       features: [
         "Rapid Korean Learning",
         "Essential Grammar Skills",
