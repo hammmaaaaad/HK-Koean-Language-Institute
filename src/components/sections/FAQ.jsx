@@ -29,7 +29,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-lightgray dark:bg-navy/10">
+    <section id="faq" className="pt-10 pb-24 bg-lightgray dark:bg-navy/10">
       <div className="container mx-auto px-6 max-w-4xl">
         <motion.div
           className="text-center mb-16"

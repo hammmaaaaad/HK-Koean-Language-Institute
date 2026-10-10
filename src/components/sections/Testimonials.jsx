@@ -33,7 +33,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-lightgray dark:bg-navy/10">
+    <section className="pt-24 pb-12 bg-lightgray dark:bg-navy/10">
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"

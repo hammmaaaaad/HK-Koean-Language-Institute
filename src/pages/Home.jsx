@@ -6,7 +6,7 @@ import Admission from "../components/sections/Admission";
 // import Teachers from "../components/sections/Teachers";
 import Stats from "../components/sections/Stats";
 import Testimonials from "../components/sections/Testimonials";
-import Gallery from "../components/sections/Gallery";
+// import Gallery from "../components/sections/Gallery";
 import FAQ from "../components/sections/FAQ";
 import Contact from "../components/sections/Contact";
 
@@ -21,7 +21,6 @@ const Home = () => {
       <Stats />
       {/* <Teachers /> */}
       <Testimonials />
-      <Gallery />
       <FAQ />
       <Contact />
     </>

@@ -8,7 +8,6 @@ const Courses = () => {
       title: "EPS-TOPIK Preparation",
       desc: "Comprehensive preparation for the EPS-TOPIK exam to secure your work visa.",
       duration: "3 Months",
-      level: "Beginner to Advanced",
       fee: "PKR 25,000",
       features: [
         "Exam Focused Training",
@@ -20,7 +19,6 @@ const Courses = () => {
       title: "Basic Korean Language",
       desc: "Start your journey with Hangul, basic grammar, and sentence structures.",
       duration: "3 Months",
-      level: "A1-A2",
       fee: "PKR 25,000",
       features: [
         "Learn Hangul Basics",
@@ -32,7 +30,6 @@ const Courses = () => {
       title: "Fast-Track Korean",
       desc: "Quick and effective Korean language learning for students in a hurry.",
       duration: "40 Days",
-      level: "A1-A2",
       fee: "PKR 25,000",
       features: [
         "Rapid Korean Learning",
@@ -44,7 +41,6 @@ const Courses = () => {
       title: "TOPIK Test Preparation",
       desc: "Specialized training for the official TOPIK test to achieve higher levels.",
       duration: "2 Months",
-      level: "TOPIK 1 & 2",
       fee: "PKR 20,000",
       features: [
         "TOPIK Exam Strategies",
@@ -56,7 +52,7 @@ const Courses = () => {
       title: "Spoken Korean",
       desc: "Focus purely on speaking and listening skills.",
       duration: "1.5 Months",
-      level: "A2+",
+
       features: [
         "Pronunciation Correction",
         "Real-life Scenarios",
@@ -67,7 +63,6 @@ const Courses = () => {
       title: "Online Classes",
       desc: "Learn Korean from the comfort of your home.",
       duration: "Flexible",
-      level: "All Levels",
       features: [
         "Live Interactive Sessions",
         "Recorded Lectures",
@@ -131,7 +126,7 @@ const Courses = () => {
                   <FaClock className="text-kred" /> {course.duration}
                 </span>
                 <span className="flex items-center gap-2 text-navy dark:text-white">
-                  <FaSignal className="text-kred" /> {course.level}
+                  {/* <FaSignal className="text-kred" /> {course.level} */}
                 </span>
               </div>
 

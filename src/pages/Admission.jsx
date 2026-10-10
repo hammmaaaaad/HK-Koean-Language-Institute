@@ -649,8 +649,15 @@ function Admission() {
                 >
                   TOPIK Test Preparation
                 </option>
-                <option value="Free Short Course" className="dark:bg-[#111c34]">
+                <option
+                  value="Free Short Course"
+                  disabled
+                  className="dark:bg-[#111c34]"
+                >
                   Free Short Course
+                </option>
+                <option value="TOPIK 2" disabled className="dark:bg-[#111c34]">
+                  TOPIK 2
                 </option>
               </select>
             </div>
