@@ -56,7 +56,7 @@ function StudentProfile() {
     course: "",
     courseDuration: "",
     customDuration: "",
-    classMode: "Physical", // ✅ NAYA FIELD
+    classMode: "Physical",
     joiningDate: "",
     lastDay: "",
   });
@@ -122,7 +122,7 @@ function StudentProfile() {
       course: s.course || "",
       courseDuration: s.courseDuration || "",
       customDuration: s.customDuration || "",
-      classMode: s.classMode || "Physical", // ✅ NAYA FIELD
+      classMode: s.classMode || "Physical",
       joiningDate: toDateInput(s.joiningDate),
       lastDay: toDateInput(s.lastDay),
     });
@@ -284,6 +284,7 @@ function StudentProfile() {
       showToast("error", err.message);
     }
   };
+
   const generateInstallmentVoucher = () => {
     const element = document.getElementById("installment-voucher");
     const opt = {
@@ -296,6 +297,7 @@ function StudentProfile() {
     html2pdf().set(opt).from(element).save();
     showToast("success", "Installment voucher downloading...");
   };
+
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-lightgray dark:bg-charcoal text-navy dark:text-white">
@@ -499,7 +501,6 @@ function StudentProfile() {
                     }
                     setCustomCourse(false);
                     setCourseForm((p) => ({ ...p, course: val }));
-                    // Course ke hisaab se fee auto-fill
                     const fee = getCourseFee(val);
                     if (fee > 0) setFeeForm({ totalFee: fee });
                   }}
@@ -514,7 +515,6 @@ function StudentProfile() {
                   <option value="__custom__">Other (Manual Entry)</option>
                 </select>
 
-                {/* Custom course ka text input — sirf "Other" select par dikhega */}
                 {customCourse && (
                   <input
                     type="text"
@@ -527,7 +527,6 @@ function StudentProfile() {
                   />
                 )}
 
-                {/* Selected course ki fee hint */}
                 {getCourseFee(courseForm.course) > 0 && (
                   <p className="text-xs text-green-600 font-medium mt-1.5">
                     ✓ Fee : {formatPKR(getCourseFee(courseForm.course))}
@@ -535,7 +534,6 @@ function StudentProfile() {
                 )}
               </div>
 
-              {/* 🏫 Class Mode — ✅ NAYA FIELD */}
               <div>
                 <label className={labelClass}>Class Mode</label>
                 <select
@@ -651,6 +649,23 @@ function StudentProfile() {
             </div>
 
             <div className="flex flex-wrap gap-3">
+              {/* 👇 Naya Paid Receipt Button (Student data auto-fill logic ke sath) 👇 */}
+              <button
+                type="button"
+                onClick={() => {
+                  const queryParams = new URLSearchParams({
+                    name: student.name || "",
+                    course: student.course || "",
+                    totalFee: feeForm.totalFee || 0,
+                    paidAmount: totalPaid || 0,
+                  }).toString();
+                  window.open(`/admin/receipt?${queryParams}`, "_blank");
+                }}
+                className="flex items-center gap-2 bg-[#155ae0] text-white hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-bold transition-all shadow-sm"
+              >
+                ✅ Generate Paid Receipt
+              </button>
+
               {/* 👇 2nd Installment Voucher Button (Sirf tab dikhega jab Remaining Fee 0 se zyada ho) 👇 */}
               {remaining > 0 && (
                 <button
@@ -676,7 +691,6 @@ function StudentProfile() {
           </div>
 
           {/* Fee Summary */}
-          {/* (Yahan aapka pehle wala Total Fee, Total Paid, Remaining Fee wala grid code wasay hi rahega[cite: 9]) */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <div className="bg-gray-50 dark:bg-white/5 rounded-2xl p-4">
               <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">

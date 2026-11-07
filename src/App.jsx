@@ -13,6 +13,8 @@ import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
 import Students from "./pages/Students";
 import StudentProfile from "./pages/StudentProfile";
+import AdminReceipt from "./components/sections/AdminReceipt";
+// (Path apne folder ke hisaab se theek kar lijiye ga agar folder ka naam kuch aur hai)
 // import PromoPopup from "./components/PromoPopup";
 
 function App() {
@@ -56,6 +58,7 @@ function App() {
                   path="/admin/students/:id"
                   element={<StudentProfile />}
                 />
+                <Route path="/admin/receipt" element={<AdminReceipt />} />
               </Routes>
             </AnimatePresence>
           </main>
